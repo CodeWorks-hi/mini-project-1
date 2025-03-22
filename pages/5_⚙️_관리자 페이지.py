@@ -4,6 +4,7 @@ import os
 from fpdf import FPDF
 import requests
 import base64
+from datetime import datetime as dt
 
 # 페이지 설정
 st.set_page_config(page_title="현대자동차 관리자 페이지", layout="wide")
@@ -104,10 +105,15 @@ def generate_pdf(
     
     # 첫 페이지 추가 (폰트 등록이 끝난 후)
     pdf.add_page()
+
+    today = str(dt.today()).split("-")
+    year = today[0]
+    month = today[1]
+    day = today[2].split(" ")[0]
     
     # ---- 상단 상담 정보 ----
     pdf.set_font("NanumGothic", "", 12)
-    pdf.cell(0, 8, "상담일: 2025년 3월 19일", ln=True)
+    pdf.cell(0, 8, f"상담일: {year}년 {month}월 {day}일", ln=True)
     pdf.cell(0, 8, "대리점명: 현대자동차 모란지점", ln=True)
     pdf.cell(0, 8, "담당자: 송결  |  연락처: 010-1234-5678", ln=True)
     pdf.ln(5)
