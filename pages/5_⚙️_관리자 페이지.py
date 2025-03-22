@@ -5,6 +5,7 @@ from fpdf import FPDF
 import requests
 import base64
 from datetime import datetime as dt
+import pytz
 
 # 페이지 설정
 st.set_page_config(page_title="현대자동차 관리자 페이지", layout="wide")
@@ -106,10 +107,12 @@ def generate_pdf(
     # 첫 페이지 추가 (폰트 등록이 끝난 후)
     pdf.add_page()
 
-    today = str(dt.today()).split("-")
-    year = today[0]
-    month = today[1]
-    day = today[2].split(" ")[0]
+    kst = pytz.timezone('Asia/Seoul')
+    today = dt.now(kst)
+
+    year = today.year
+    month = today.month
+    day = today.day
     
     # ---- 상단 상담 정보 ----
     pdf.set_font("NanumGothic", "", 12)
