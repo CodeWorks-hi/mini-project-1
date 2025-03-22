@@ -10,6 +10,13 @@ import pytz
 # 페이지 설정
 st.set_page_config(page_title="현대자동차 관리자 페이지", layout="wide")
 
+kst = pytz.timezone('Asia/Seoul')
+today = dt.now(kst)
+
+year = today.year
+month = today.month
+day = today.day
+
 # ✅ 파일 경로 확인 및 데이터 불러오기
 file_path = "data/차량정보.csv"
 df = pd.read_csv(file_path)
@@ -106,15 +113,6 @@ def generate_pdf(
     
     # 첫 페이지 추가 (폰트 등록이 끝난 후)
     pdf.add_page()
-
-    kst = pytz.timezone('Asia/Seoul')
-    today = dt.now(kst)
-
-    year = today.year
-    month = today.month
-    day = today.day
-
-    st.write(day)
     
     # ---- 상단 상담 정보 ----
     pdf.set_font("NanumGothic", "", 12)
