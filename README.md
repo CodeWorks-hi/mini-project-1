@@ -1,26 +1,75 @@
-# 고객 분석 대시보드
+# 맞춤형 차량 추천 및 프로모션 플랫폼
 
-## 개요
-이 프로젝트는 고객 데이터를 기반으로 연령대, 거주 지역, 차량 선호도 등 다양한 인사이트를 도출하는 **고객 분석 대시보드** 애플리케이션입니다.  
-특히, 한글 폰트 깨짐 문제를 해결하기 위해 운영체제별(Windows, macOS, Ubuntu) 한글 폰트 설정을 적용하여, 배포 및 로컬 환경 모두에서 차트에 한글이 깨지지 않도록 구성하였습니다.
+## 🧭 개요
+본 프로젝트는 고객 데이터를 기반으로 **AI 차량 추천 시스템** 및 **프로모션 관리 플랫폼**을 구축하는 것을 목표로 하였습니다.  
+고객의 구매 성향, 지역, 예산 등 다양한 특성을 분석하고, 이를 기반으로 최적의 차량을 추천하며, 실시간 프로모션 정보를 제공하는 대시보드를 Streamlit 기반으로 구현하였습니다.
 
-## 주요 기능
-- **고객 데이터 분석**:  
-  - 연령대별 고객 분포, 지역별 고객 분포를 히스토그램 및 막대그래프로 시각화  
-  - 상위 3개 차량 모델, 친환경 차량 선호도 등 다양한 관점의 분석 제공  
-- **판매 데이터 분석**:  
-  - 시기 및 연료 구분별 판매 대수, 구매 유형별 선호도 분석  
-- **폰트 설정 적용**:  
-  - 운영체제별 한글 폰트(AppleSDGothicNeo, Malgun Gothic, NanumGothic)를 자동으로 로드하여 Matplotlib, Seaborn 그래프에서 한글이 정상적으로 표시되도록 설정
+---
 
-## 사용 기술
-- **Python**: 데이터 처리, 시각화, 애플리케이션 로직
-- **Streamlit**: 웹 대시보드 프레임워크
-- **Pandas, NumPy**: 데이터 분석
-- **Matplotlib, Seaborn**: 데이터 시각화
-- **matplotlib.font_manager**: 운영체제별 한글 폰트 설정
+## 🚀 주요 기능
 
-## 설치 및 실행
-1. **필수 패키지 설치**  
-   ```bash
-   pip install -r requirements.txt
+### 🔍 AI 기반 차량 추천 시스템
+- 사용자의 입력 정보(예산, 지역, 차량 유형 등)를 기반으로 머신러닝 모델을 통해 차량 추천
+- 연료 유형별로 세분화된 모델 구성 (가솔린, 디젤, 전기)
+
+### 🧠 고객 세분화 및 클러스터링
+- 고객 충성도, 구매 이력 등을 기반으로 6가지 클러스터 도출
+- 각 클러스터에 맞는 마케팅 전략 도출
+
+### 📊 시각화 대시보드
+- 연령대, 지역별 고객 분포 및 차량 선호도 시각화
+- 연료 유형별 판매 추세 및 고객 가치 기반 인사이트 제공
+
+### 🎯 프로모션 매칭 및 혜택 추천
+- 할부 계산기 등 추가 서비스 연동
+- 카드사 제휴 혜택 분석 및 구매 유도 전략 제공
+
+### 🔐 보안 및 자동 배포
+- `.secrets.toml`을 활용한 API 키 안전 보관
+- GitHub Actions를 이용한 CI/CD 및 Streamlit Cloud 자동 배포
+
+---
+
+## 🛠 사용 기술
+
+| 분야 | 기술 스택 |
+|------|------------|
+| Frontend | Streamlit (PWA 지원) |
+| Backend/ML | Python, Scikit-learn, LightGBM, Pandas, NumPy |
+| 시각화 | Matplotlib, Seaborn |
+| 배포 및 관리 | GitHub Actions, Streamlit Cloud |
+| 기타 | Openpyxl, dotenv, matplotlib.font_manager (운영체제별 한글 폰트 설정) |
+
+---
+
+## 💻 설치 및 실행
+
+```bash
+pip install -r requirements.txt
+streamlit run app.py
+```
+
+---
+
+## 📈 프로젝트 결과
+
+- **차량 추천 정확도**: 85% ~ 95%
+- **최적 모델 선정**: `Decision Tree`, `Random Forest`, `Gradient Boosting`, `LightGBM`
+- **연령대별 맞춤 전략 제안**: 20대 / 30대 / 40대 / 50대 / 60대 이상
+- **주요 지역별 맞춤 전략 제안**: 서울 / 울산 / 수원 / 성남 / 천안
+- **고객 등급별 맞춤 전략 제안**: 신규 / 일반 / VIP
+
+---
+
+## 🏁 기대 효과
+
+- 맞춤형 차량 추천 & 프로모션 제공
+- 직관적인 UI/UX 설계로 누구나 쉽게 사용 가능
+- 고객과 영업사원 모두의 편의성 향상 및 매출 증대 기여
+
+---
+
+## 📽️ 시연 영상 및 문서
+
+- 🔗 [Streamlit 앱](https://hyundai-crm-analysis-codeworks.streamlit.app/)
+- 🎥 [시연 영상 (Google Drive)](https://docs.google.com/file/d/1hor22304b4WGEhOolFn4Hxg05QbQcAMw/preview)
