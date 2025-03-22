@@ -13,11 +13,9 @@ st.set_page_config(page_title="현대자동차 관리자 페이지", layout="wid
 kst = pytz.timezone('Asia/Seoul')
 today = dt.now(kst)
 
-year = today.year
-month = today.month
-day = today.day
-
-st.write(dt.today())
+now_year = today.year
+now_month = today.month
+now_day = today.day
 
 # ✅ 파일 경로 확인 및 데이터 불러오기
 file_path = "data/차량정보.csv"
@@ -118,7 +116,7 @@ def generate_pdf(
     
     # ---- 상단 상담 정보 ----
     pdf.set_font("NanumGothic", "", 12)
-    pdf.cell(0, 8, f"상담일: {year}년 {month}월 {day}일", ln=True)
+    pdf.cell(0, 8, f"상담일: {now_year}년 {now_month}월 {now_day}일", ln=True)
     pdf.cell(0, 8, "대리점명: 현대자동차 모란지점", ln=True)
     pdf.cell(0, 8, "담당자: 송결  |  연락처: 010-1234-5678", ln=True)
     pdf.ln(5)
