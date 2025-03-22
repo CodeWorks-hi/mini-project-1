@@ -17,6 +17,8 @@ year = today.year
 month = today.month
 day = today.day
 
+st.write(day)
+
 # ✅ 파일 경로 확인 및 데이터 불러오기
 file_path = "data/차량정보.csv"
 df = pd.read_csv(file_path)
