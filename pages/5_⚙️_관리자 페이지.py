@@ -113,6 +113,8 @@ def generate_pdf(
     year = today.year
     month = today.month
     day = today.day
+
+    st.write(day)
     
     # ---- 상단 상담 정보 ----
     pdf.set_font("NanumGothic", "", 12)
