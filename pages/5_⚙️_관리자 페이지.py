@@ -17,7 +17,7 @@ year = today.year
 month = today.month
 day = today.day
 
-st.write(day)
+st.write(dt.today())
 
 # ✅ 파일 경로 확인 및 데이터 불러오기
 file_path = "data/차량정보.csv"
